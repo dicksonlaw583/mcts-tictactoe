@@ -2,9 +2,7 @@
 {
   var node = argument0,
       playout = argument1,
-      new_weight = undefined,
-      state = tictactoe_deserialize(node[@MCTS_NODE.STATE]);
-  node[@MCTS_NODE.TOTAL] -= state[9]*playout;
+      new_weight = undefined;
   if (is_undefined(node[@MCTS_NODE.AUX])) {
     node[@MCTS_NODE.AUX] = node[@MCTS_NODE.VISITS];
   }

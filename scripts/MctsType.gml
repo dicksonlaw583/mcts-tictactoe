@@ -5,11 +5,13 @@ enum MCTS_TYPE {
   APPLY_MOVE,
   FINAL_REWARD,
   SERIALIZE,
-  DESERIALIZE
+  DESERIALIZE,
+  CLEANUP
 }
 
 {
   var mcts_type;
+  mcts_type[MCTS_TYPE.CLEANUP] = argument6;
   mcts_type[MCTS_TYPE.DESERIALIZE] = argument5;
   mcts_type[MCTS_TYPE.SERIALIZE] = argument4;
   mcts_type[MCTS_TYPE.FINAL_REWARD] = argument3;

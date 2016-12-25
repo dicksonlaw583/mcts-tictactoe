@@ -9,7 +9,8 @@
       tictactoe_apply_move,
       tictactoe_final_reward,
       tictactoe_serialize,
-      tictactoe_deserialize
+      tictactoe_deserialize,
+      undefined
     );
     var input, outcome, message, mcts_tree, mcts_tree_moves;
     do {
@@ -51,12 +52,11 @@
           tictactoe_expand,
           tictactoe_playout,
           tictactoe_tentative_reward,
-          tictactoe_reweight
+          tictactoe_reweight,
+          tictactoe_interpret_reward
         );
-        show_debug_message(tictactoe_serialize(tictactoe_generate_state(perspective)));
         mcts_tree_evaluate(mcts_tree, 100, 250);
         tictactoe_apply_move(perspective, mcts_tree_get_best_move(mcts_tree));
-        mcts_tree_get_best_moves(mcts_tree);
         mcts_tree = undefined;
       }
       // Check game end

@@ -44,11 +44,16 @@
     for (var i = path[@ 0]; i >= 1; i--) {
       node = path[@ i];
       node[@MCTS_NODE.VISITS]++;
+      node[@MCTS_NODE.TOTAL] += script_execute(tree[@MCTS_TREE.INTERPRET_REWARD], node, playout_result);
     }
     // Reweight
     for (var i = 1; i <= path[@ 0]; i++) {
       node = path[@ i];
       script_execute(tree[@MCTS_TREE.REWEIGHT], node, playout_result);
+    }
+    // Cleanup
+    if (!is_undefined(tree[@MCTS_TREE.CLEANUP])) {
+      script_execute(tree[@MCTS_TREE.CLEANUP], play_state);
     }
   } until (current_time - start_time >= max_total_ms)
 }

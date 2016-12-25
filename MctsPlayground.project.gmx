@@ -88,6 +88,7 @@
       <script>scripts\tictactoe_expand.gml</script>
       <script>scripts\tictactoe_reweight.gml</script>
       <script>scripts\tictactoe_playout.gml</script>
+      <script>scripts\tictactoe_interpret_reward.gml</script>
     </scripts>
     <script>scripts\tictactoe_game.gml</script>
   </scripts>
