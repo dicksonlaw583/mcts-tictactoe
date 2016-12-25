@@ -1,4 +1,4 @@
-///mcts_tree_get_best_moves(mcts_tree)
+///mcts_tree_get_best_move(mcts_tree)
 {
   var tree = argument0,
       node = tree[@MCTS_TREE.ROOT],
@@ -12,8 +12,8 @@
     for (var i = 0; i < children_array_count; i += 2) {
       child_node = children_array[i+1];
       if (!is_undefined(child_node) && child_node[@MCTS_NODE.VISITS] > 0) {
-        child_value = child_node[@MCTS_NODE.TOTAL]/child_node[@MCTS_NODE.VISITS]
-        show_debug_message(string(children_array[i]) +  ": " + string(child_node[@MCTS_NODE.TOTAL]) + "/" + string(child_node[@MCTS_NODE.VISITS]) + " weight " + string(child_node[@MCTS_NODE.WEIGHT]));
+        child_value = child_node[@MCTS_NODE.VISITS]
+        show_debug_message(string(children_array[i]) +  ": " + string(child_node[@MCTS_NODE.TOTAL]) + "/" + string(child_node[@MCTS_NODE.VISITS]));
         if (is_undefined(best_amount) || child_value >= best_amount) {
           best_move = children_array[i];
           best_amount = child_value;

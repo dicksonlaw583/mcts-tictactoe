@@ -54,8 +54,9 @@
           tictactoe_reweight
         );
         show_debug_message(tictactoe_serialize(tictactoe_generate_state(perspective)));
-        mcts_tree_evaluate(mcts_tree, 1000, 2000);
+        mcts_tree_evaluate(mcts_tree, 100, 250);
         tictactoe_apply_move(perspective, mcts_tree_get_best_move(mcts_tree));
+        mcts_tree_get_best_moves(mcts_tree);
         mcts_tree = undefined;
       }
       // Check game end
@@ -91,7 +92,7 @@
       if (outcome == 1) {
         message += chr(13) + "You win!";
       }
-      else if (outcome == 0) {
+      else if (outcome == -1) {
         message += chr(13) + "You lose!";
       }
       else {
@@ -102,7 +103,7 @@
       if (outcome == 1) {
         message += chr(13) + "You lose!";
       }
-      else if (outcome == 0) {
+      else if (outcome == -1) {
         message += chr(13) + "You win!";
       }
       else {

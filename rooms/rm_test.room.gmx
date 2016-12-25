@@ -10,10 +10,9 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>//tictactoe_test();
+  <code>tictactoe_test();
 
 randomize();
-
 tictactoe_game();</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

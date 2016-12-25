@@ -1,18 +1,37 @@
 ///mcts_tree_get_best_moves(mcts_tree)
 {
   var tree = argument0;
-  var sequence, sequence_size, node, selection;
+  var sequence, sequence_size, node;
+  var children_array, children_array_count, child_node, child_value, best_move, best_child_node, best_amount;
   sequence[0] = 0;
   sequence[1] = undefined;
   sequence_size = 0;
   node = tree[@MCTS_TREE.ROOT];
   do {
-    selection = script_execute(tree[@MCTS_TREE.SELECT], node);
-    if (!is_undefined(selection[0])) {
-      sequence[++sequence_size] = selection[0];
-      node = selection[@ 1];
+    best_move = undefined;
+    best_child_node = undefined;
+    best_amount = undefined;
+    children_array = node[@MCTS_NODE.CHILDREN];
+    if (!is_undefined(children_array)) {
+      children_array_count = array_length_1d(children_array);
+      for (var i = 0; i < children_array_count; i += 2) {
+        child_node = children_array[i+1];
+        if (!is_undefined(child_node) && child_node[@MCTS_NODE.VISITS] > 0) {
+          child_value = child_node[@MCTS_NODE.VISITS]
+          if (is_undefined(best_amount) || child_value >= best_amount) {
+            best_move = children_array[i];
+            best_child_node = child_node;
+            best_amount = child_value;
+          }
+        }
+      } 
     }
-  } until (is_undefined(selection[0]));
+    if (!is_undefined(best_child_node)) {
+      sequence[++sequence_size] = best_move;
+      node = best_child_node;
+    }
+  } until (is_undefined(best_child_node));
   sequence[0] = sequence_size;
+  show_debug_message("Best move scenario:" + string(sequence));
   return sequence;
 }
