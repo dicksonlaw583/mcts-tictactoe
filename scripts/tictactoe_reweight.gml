@@ -1,7 +1,15 @@
-///tictactoe_reweight(@node)
+///tictactoe_reweight(@node, playout)
 {
   var node = argument0,
-      new_weight = undefined;
+      playout = argument1,
+      new_weight = undefined,
+      state = tictactoe_deserialize(node[@MCTS_NODE.STATE]);
+  if (state[9] == 1) {
+    node[@MCTS_NODE.TOTAL] += 1-playout;
+  }
+  else {
+    node[@MCTS_NODE.TOTAL] += playout;
+  }
   if (is_undefined(node[@MCTS_NODE.AUX])) {
     node[@MCTS_NODE.AUX] = node[@MCTS_NODE.VISITS];
   }

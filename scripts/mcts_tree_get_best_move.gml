@@ -11,10 +11,10 @@
   if (!is_undefined(children_array)) {
     for (var i = 0; i < children_array_count; i += 2) {
       child_node = children_array[i+1];
-      if (!is_array(child_node)) show_error("", true);
       if (!is_undefined(child_node) && child_node[@MCTS_NODE.VISITS] > 0) {
         child_value = child_node[@MCTS_NODE.TOTAL]/child_node[@MCTS_NODE.VISITS]
-        if (is_undefined(best_amount) || child_value > best_amount) {
+        show_debug_message(string(children_array[i]) +  ": " + string(child_node[@MCTS_NODE.TOTAL]) + "/" + string(child_node[@MCTS_NODE.VISITS]) + " weight " + string(child_node[@MCTS_NODE.WEIGHT]));
+        if (is_undefined(best_amount) || child_value >= best_amount) {
           best_move = children_array[i];
           best_amount = child_value;
         }

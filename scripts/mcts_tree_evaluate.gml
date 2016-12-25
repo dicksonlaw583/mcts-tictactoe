@@ -41,14 +41,14 @@
       }
     }
     // Bubble
-    for (var i = 1; i <= path[@ 0]; i++) {
+    for (var i = path[@ 0]; i >= 1; i--) {
       node = path[@ i];
       node[@MCTS_NODE.VISITS]++;
-      node[@MCTS_NODE.TOTAL] += playout_result;
     }
     // Reweight
     for (var i = 1; i <= path[@ 0]; i++) {
-      script_execute(tree[@MCTS_TREE.REWEIGHT], node);
+      node = path[@ i];
+      script_execute(tree[@MCTS_TREE.REWEIGHT], node, playout_result);
     }
   } until (current_time - start_time >= max_total_ms)
 }
