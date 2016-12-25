@@ -16,10 +16,10 @@
     return state[@ 0];
   }
   if (state[@ 1] == state[@ 4] && state[@ 1] == state[@ 7] && state[@ 1] != 0) {
-    return state[@ 3];
+    return state[@ 1];
   }
   if (state[@ 2] == state[@ 5] && state[@ 2] == state[@ 8] && state[@ 2] != 0) {
-    return state[@ 6];
+    return state[@ 2];
   }
   // Diagonals
   if (state[@ 0] == state[@ 4] && state[@ 0] == state[@ 8] && state[@ 0] != 0) {
