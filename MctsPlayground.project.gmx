@@ -4,9 +4,24 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
-  <sprites name="sprites"/>
-  <backgrounds name="background"/>
+  <sounds name="sound">
+    <sound>sound\snd_o</sound>
+    <sound>sound\snd_x</sound>
+    <sound>sound\snd_win</sound>
+    <sound>sound\snd_lose</sound>
+    <sound>sound\snd_draw</sound>
+  </sounds>
+  <sprites name="sprites">
+    <sprite>sprites\spr_o</sprite>
+    <sprite>sprites\spr_x</sprite>
+    <sprite>sprites\spr_return</sprite>
+    <sprite>sprites\spr_start</sprite>
+    <sprite>sprites\spr_quit</sprite>
+    <sprite>sprites\spr_slider</sprite>
+  </sprites>
+  <backgrounds name="background">
+    <background>background\bg_board</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="GMAssert">
@@ -91,10 +106,30 @@
       <script>scripts\tictactoe_playout.gml</script>
       <script>scripts\tictactoe_interpret_playout.gml</script>
     </scripts>
+    <scripts name="Game Interface">
+      <script>scripts\relerp.gml</script>
+    </scripts>
     <script>scripts\tictactoe_game.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_text</font>
+  </fonts>
+  <objects name="objects">
+    <object>objects\obj_controller</object>
+    <object>objects\pobj_board_symbol</object>
+    <object>objects\obj_x</object>
+    <object>objects\obj_o</object>
+    <object>objects\pobj_button</object>
+    <object>objects\obj_button_return</object>
+    <object>objects\obj_title</object>
+    <object>objects\obj_slider</object>
+    <object>objects\obj_button_start</object>
+    <object>objects\obj_button_quit</object>
+  </objects>
   <rooms name="rooms">
-    <room>rooms\rm_test</room>
+    <room>rooms\rm_init</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_game</room>
   </rooms>
   <constants number="10">
     <constant name="GMASSERT_MODE">GMASSERT_MODE_ENABLED</constant>
