@@ -5,7 +5,7 @@
   moves[0] = 0;
   moves[1] = undefined;
   // No moves possible from a win or loss
-  if (!is_undefined(tictactoe_final_reward(state))) {
+  if (!is_undefined(tictactoe_final_playout(state))) {
     return moves;
   }
   // Available moves are blank squares

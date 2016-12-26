@@ -7,7 +7,7 @@
       tictactoe_generate_state,
       tictactoe_generate_moves,
       tictactoe_apply_move,
-      tictactoe_final_reward,
+      tictactoe_final_playout,
       tictactoe_serialize,
       tictactoe_deserialize,
       undefined
@@ -51,16 +51,16 @@
           tictactoe_select,
           tictactoe_expand,
           tictactoe_playout,
-          tictactoe_tentative_reward,
+          tictactoe_tentative_playout,
           tictactoe_reweight,
-          tictactoe_interpret_reward
+          tictactoe_interpret_playout
         );
         mcts_tree_evaluate(mcts_tree, 100, 250);
         tictactoe_apply_move(perspective, mcts_tree_get_best_move(mcts_tree));
         mcts_tree = undefined;
       }
       // Check game end
-      outcome = tictactoe_final_reward(perspective);
+      outcome = tictactoe_final_playout(perspective);
     } until (!is_undefined(outcome))
     
     // Game end message

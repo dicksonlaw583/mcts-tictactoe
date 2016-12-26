@@ -7,7 +7,7 @@
   do {
     moves = tictactoe_generate_moves(state);
     if (moves[0] == 0) {
-      return tictactoe_final_reward(state);
+      return tictactoe_final_playout(state);
     }
     else {
       tictactoe_apply_move(state, moves[irandom_range(1, moves[0])]);

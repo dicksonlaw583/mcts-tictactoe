@@ -1,4 +1,4 @@
-///tictactoe_interpret_reward(node, playout)
+///tictactoe_interpret_playout(node, playout)
 {
   var node = argument0,
       playout = argument1,

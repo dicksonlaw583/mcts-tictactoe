@@ -3,7 +3,7 @@ enum MCTS_TYPE {
   GENERATE_STATE,
   GENERATE_MOVES,
   APPLY_MOVE,
-  FINAL_REWARD,
+  FINAL_PLAYOUT,
   SERIALIZE,
   DESERIALIZE,
   CLEANUP
@@ -14,7 +14,7 @@ enum MCTS_TYPE {
   mcts_type[MCTS_TYPE.CLEANUP] = argument6;
   mcts_type[MCTS_TYPE.DESERIALIZE] = argument5;
   mcts_type[MCTS_TYPE.SERIALIZE] = argument4;
-  mcts_type[MCTS_TYPE.FINAL_REWARD] = argument3;
+  mcts_type[MCTS_TYPE.FINAL_PLAYOUT] = argument3;
   mcts_type[MCTS_TYPE.APPLY_MOVE] = argument2;
   mcts_type[MCTS_TYPE.GENERATE_MOVES] = argument1;
   mcts_type[MCTS_TYPE.GENERATE_STATE] = argument0;

@@ -1,4 +1,4 @@
-///tictactoe_final_reward(state)
+///tictactoe_final_playout(state)
 {
   var state = argument0;
   // Rows

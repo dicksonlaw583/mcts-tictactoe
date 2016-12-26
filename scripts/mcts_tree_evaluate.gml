@@ -28,7 +28,7 @@
     if (is_undefined(play_node)) {
       play_node = last_node;
       play_state = script_execute(tree[@MCTS_TREE.DESERIALIZE], play_node[@MCTS_NODE.STATE]);
-      playout_result = script_execute(tree[@MCTS_TREE.FINAL_REWARD], play_state);
+      playout_result = script_execute(tree[@MCTS_TREE.FINAL_PLAYOUT], play_state);
     }
     else {
       path[@ 0]++;
@@ -36,14 +36,14 @@
       play_state = script_execute(tree[@MCTS_TREE.DESERIALIZE], play_node[@MCTS_NODE.STATE]);
       playout_result = script_execute(tree[@MCTS_TREE.PLAYOUT], play_state, max_playout_ms);
       if (is_undefined(playout_result)) {
-        playout_result = script_execute(tree[@MCTS_TREE.TENTATIVE_REWARD], play_state);
+        playout_result = script_execute(tree[@MCTS_TREE.TENTATIVE_PLAYOUT], play_state);
       }
     }
     // Bubble
     for (var i = path[@ 0]; i >= 1; i--) {
       node = path[@ i];
       node[@MCTS_NODE.VISITS]++;
-      node[@MCTS_NODE.TOTAL] += script_execute(tree[@MCTS_TREE.INTERPRET_REWARD], node, playout_result);
+      node[@MCTS_NODE.TOTAL] += script_execute(tree[@MCTS_TREE.INTERPRET_PLAYOUT], node, playout_result);
     }
     // Reweight
     for (var i = 1; i <= path[@ 0]; i++) {
