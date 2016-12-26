@@ -10,6 +10,7 @@
     <sound>sound\snd_win</sound>
     <sound>sound\snd_lose</sound>
     <sound>sound\snd_draw</sound>
+    <sound>sound\snd_click</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_o</sprite>
