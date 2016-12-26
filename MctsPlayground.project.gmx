@@ -110,7 +110,6 @@
       <script>scripts\relerp.gml</script>
       <script>scripts\room_fadeto.gml</script>
     </scripts>
-    <script>scripts\tictactoe_game.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_text</font>
