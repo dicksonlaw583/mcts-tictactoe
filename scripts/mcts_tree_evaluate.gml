@@ -36,7 +36,6 @@
       play_state = script_execute(tree[@MCTS_TREE.DESERIALIZE], play_node[@MCTS_NODE.STATE]);
       playout_result = script_execute(tree[@MCTS_TREE.PLAYOUT], play_state, max_playout_ms);
       if (is_undefined(playout_result)) {
-        show_debug_message("ABCD");
         playout_result = script_execute(tree[@MCTS_TREE.TENTATIVE_REWARD], play_state);
       }
     }

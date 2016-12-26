@@ -12,5 +12,6 @@
   tictactoe_test_expand();
   tictactoe_test_reweight();
   tictactoe_test_playout();
+  tictactoe_test_interpret_reward();
   show_debug_message("Tic-tac-toe tests completed in " + string(current_time-start_time) + "ms.");
 }

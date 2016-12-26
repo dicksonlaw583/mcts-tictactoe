@@ -76,6 +76,7 @@
         <script>scripts\tictactoe_test_reweight.gml</script>
         <script>scripts\tictactoe_test_playout.gml</script>
         <script>scripts\tictactoe_test_tentative_reward.gml</script>
+        <script>scripts\tictactoe_test_interpret_reward.gml</script>
       </scripts>
       <script>scripts\tictactoe_generate_state.gml</script>
       <script>scripts\tictactoe_generate_moves.gml</script>

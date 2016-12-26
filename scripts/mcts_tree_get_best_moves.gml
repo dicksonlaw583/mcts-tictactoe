@@ -32,6 +32,5 @@
     }
   } until (is_undefined(best_child_node));
   sequence[0] = sequence_size;
-  show_debug_message("Best move scenario:" + string(sequence));
   return sequence;
 }
