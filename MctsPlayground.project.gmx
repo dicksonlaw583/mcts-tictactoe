@@ -68,28 +68,28 @@
         <script>scripts\tictactoe_test_generate_state.gml</script>
         <script>scripts\tictactoe_test_generate_moves.gml</script>
         <script>scripts\tictactoe_test_apply_move.gml</script>
-        <script>scripts\tictactoe_test_final_reward.gml</script>
+        <script>scripts\tictactoe_test_final_playout.gml</script>
         <script>scripts\tictactoe_test_serialize.gml</script>
         <script>scripts\tictactoe_test_deserialize.gml</script>
         <script>scripts\tictactoe_test_select.gml</script>
         <script>scripts\tictactoe_test_expand.gml</script>
         <script>scripts\tictactoe_test_reweight.gml</script>
         <script>scripts\tictactoe_test_playout.gml</script>
-        <script>scripts\tictactoe_test_tentative_reward.gml</script>
-        <script>scripts\tictactoe_test_interpret_reward.gml</script>
+        <script>scripts\tictactoe_test_tentative_playout.gml</script>
+        <script>scripts\tictactoe_test_interpret_playout.gml</script>
       </scripts>
       <script>scripts\tictactoe_generate_state.gml</script>
       <script>scripts\tictactoe_generate_moves.gml</script>
       <script>scripts\tictactoe_apply_move.gml</script>
-      <script>scripts\tictactoe_tentative_reward.gml</script>
-      <script>scripts\tictactoe_final_reward.gml</script>
+      <script>scripts\tictactoe_tentative_playout.gml</script>
+      <script>scripts\tictactoe_final_playout.gml</script>
       <script>scripts\tictactoe_serialize.gml</script>
       <script>scripts\tictactoe_deserialize.gml</script>
       <script>scripts\tictactoe_select.gml</script>
       <script>scripts\tictactoe_expand.gml</script>
       <script>scripts\tictactoe_reweight.gml</script>
       <script>scripts\tictactoe_playout.gml</script>
-      <script>scripts\tictactoe_interpret_reward.gml</script>
+      <script>scripts\tictactoe_interpret_playout.gml</script>
     </scripts>
     <script>scripts\tictactoe_game.gml</script>
   </scripts>
