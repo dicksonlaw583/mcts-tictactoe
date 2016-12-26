@@ -76,7 +76,7 @@
     break;
     case 2: // Wobble
       wobble_phase = (wobble_phase+360/room_speed) mod 360;
-      scale = 1-0.125*(dsin(wobble_phase)-1);
+      scale = 1+0.125*(dsin(wobble_phase)-1);
     break;
   }
   image_xscale = scale;
@@ -107,7 +107,7 @@
             <string>///Start wobbling
 {
   global.animating = false;
-  wobble_phase = 1;
+  wobble_phase = 90;
   phase = 2;
 }
 </string>
