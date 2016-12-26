@@ -125,6 +125,8 @@
     <object>objects\obj_slider</object>
     <object>objects\obj_button_start</object>
     <object>objects\obj_button_quit</object>
+    <object>objects\obj_background_generator</object>
+    <object>objects\obj_background_symbol</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>
