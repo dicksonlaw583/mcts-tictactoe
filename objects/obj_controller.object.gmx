@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>///Setup
 {
-  global.animating = false;
   player_wins = 0;
   computer_wins = 0;
   mcts_type = MctsType(

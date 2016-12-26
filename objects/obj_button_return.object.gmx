@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Return to menu
 {
-  room_goto(rm_menu);
+  room_fadeto(rm_menu);
 }
 </string>
           </argument>

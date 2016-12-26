@@ -108,6 +108,7 @@
     </scripts>
     <scripts name="Game Interface">
       <script>scripts\relerp.gml</script>
+      <script>scripts\room_fadeto.gml</script>
     </scripts>
     <script>scripts\tictactoe_game.gml</script>
   </scripts>
@@ -127,6 +128,7 @@
     <object>objects\obj_button_quit</object>
     <object>objects\obj_background_generator</object>
     <object>objects\obj_background_symbol</object>
+    <object>objects\obj_room_fadeto</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_init</room>

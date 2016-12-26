@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Go to game
 {
-  room_goto(rm_game);
+  room_fadeto(rm_game);
 }
 </string>
           </argument>

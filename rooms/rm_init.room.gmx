@@ -13,11 +13,12 @@
   <code>{
   //Self-test
   tictactoe_test();
-  //Boot up
-  randomize();
-  room_goto_next();
   //Global variables
   global.mcts_time = 250;
+  global.animating = false;
+  //Boot up
+  randomize();
+  room_fadeto(rm_menu);
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
