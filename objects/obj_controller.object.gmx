@@ -203,14 +203,15 @@
         celly = (mouse_y-120) div 160;
     if (cellx &gt;= 0 &amp;&amp; cellx &lt;= 2 &amp;&amp; celly &gt;= 0 &amp;&amp; celly &lt;= 2) {
       var move = celly*3+cellx;
-      if (player_symbol == 1) {
-        symbol_instances[move] = instance_create(480+160*cellx, 200+160*celly, obj_o);
+      if (tictactoe_apply_move(state, move)) {
+        if (player_symbol == 1) {
+          symbol_instances[move] = instance_create(480+160*cellx, 200+160*celly, obj_o);
+        }
+        else {
+          symbol_instances[move] = instance_create(480+160*cellx, 200+160*celly, obj_x);
+        }
+        event_user(1);
       }
-      else {
-        symbol_instances[move] = instance_create(480+160*cellx, 200+160*celly, obj_x);
-      }
-      tictactoe_apply_move(state, move);
-      event_user(1);
     }
   }
 }
