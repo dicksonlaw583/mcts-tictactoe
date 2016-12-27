@@ -1,4 +1,6 @@
 ///tictactoe_test()
+// This is a self-test of the operations used to build and evaluate the MCTS AI.
+// Using MCTS allows AI to be constructed from only the rules of the game.
 {
   var start_time = current_time;
   tictactoe_test_generate_state();

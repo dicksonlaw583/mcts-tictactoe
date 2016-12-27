@@ -1,4 +1,7 @@
 ///mcts_tree_get_best_moves(mcts_tree)
+// This returns an array for the best found move sequence from the tree's root node, according to the number of visits.
+// To prevent the array from collapsing with 0 or 1 entries, index 0 is reserved for the size.
+// Example: [0, undefined], [1, <move A>], [3, <move A>, <move B>, <move C>]
 {
   var tree = argument0;
   var sequence, sequence_size, node;

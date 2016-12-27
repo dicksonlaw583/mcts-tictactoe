@@ -1,4 +1,6 @@
 ///tictactoe_final_playout(state)
+// Here we use -1 to stand for a win by X, 0 for a draw and 1 for a win by O
+// Returning undefined means the game isn't over yet
 {
   var state = argument0;
   // Rows

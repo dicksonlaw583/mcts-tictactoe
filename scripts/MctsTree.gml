@@ -1,19 +1,20 @@
 ///MctsTree(mcts_type, perspective, scr_select, scr_expand, scr_playout, scr_tentative_reward, scr_reweight, scr_interpret_reward)
+// This is an expanded version of MctsType, containing strategic elements of the AI. This is what an AI would operate on.
 enum MCTS_TREE {
-  ROOT,
-  GENERATE_STATE,
-  GENERATE_MOVES,
-  APPLY_MOVE,
-  FINAL_PLAYOUT,
-  SERIALIZE,
-  DESERIALIZE,
-  SELECT,
-  EXPAND,
-  PLAYOUT,
-  TENTATIVE_PLAYOUT,
-  REWEIGHT,
-  CLEANUP,
-  INTERPRET_PLAYOUT
+  ROOT, //The root node (MctsNode)
+  GENERATE_STATE, //(Inherited from MctsType) The script for generating a state from a given perspective
+  GENERATE_MOVES, //(Inherited from MctsType) The script for generating moves from a given state, in [<# of moves>, <move A>, <move B>, ...] array form ([0, undefined] for no moves)
+  APPLY_MOVE, //(Inherited from MctsType) The script for applying a move in-place to the provided state
+  FINAL_PLAYOUT, //(Inherited from MctsType) The script for returing a final playout result from a provided state (undefined if it isn't final)
+  SERIALIZE, //(Inherited from MctsType) The script for converting the provided state to a serialized format
+  DESERIALIZE, //(Inherited from MctsType) The script for converting a provided serialized state to a live state
+  SELECT, //The script for selecting children of the provided node, in [<move>, <child node>] array form ([undefined, <provided node>] if it can't go further)
+  EXPAND, //The script for expanding the given node and returning a node to play out (undefined if it is a final node)
+  PLAYOUT, //The script for playing out the given state in-place for up to some amount of time in milliseconds, then returning undefined if it didn't finish or the playout result if it did
+  TENTATIVE_PLAYOUT, //The script for returning a quick tentative result for a live state after a playout times out
+  REWEIGHT, //The script for reweighting a given node during back-propagation
+  CLEANUP, //(Inherited from MctsType) The script for freeing resources used by a given live state (can be set to undefined if not needed)
+  INTERPRET_PLAYOUT //The script for evaluating a playout result (must support tentative AND final results) and returning a numeric reward for the player leading into the node
 }
 
 {
