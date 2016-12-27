@@ -14,8 +14,8 @@
   //Self-test
   tictactoe_test();
   //Global variables
-  global.mcts_time = 100;
-  global.animating = false;
+  global.mcts_time = 100; // Time allowed for the MCTS AI to think per move
+  global.animating = false; // Whether an animation is going on
   //Boot up
   randomize();
   room_fadeto(rm_menu);
