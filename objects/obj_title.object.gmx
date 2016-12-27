@@ -25,12 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Setup
-draw_set_halign(fa_center);
-draw_set_font(fnt_text);
-draw_set_colour($c7c7c7);
-// Title
-draw_text(x, y, "Tic-Tac-Toe");
+            <string>///Draw the title
+{
+  // Setup
+  draw_set_halign(fa_center);
+  draw_set_font(fnt_text);
+  draw_set_colour($c7c7c7);
+  // Title
+  draw_text(x, y, "Tic-Tac-Toe");
+}
 </string>
           </argument>
         </arguments>

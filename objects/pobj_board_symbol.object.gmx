@@ -27,13 +27,19 @@
             <kind>1</kind>
             <string>///Setup
 {
+  // Size
   scale = 0;
   image_xscale = 0;
   image_yscale = 0;
+  // Finite state machine counter
   phase = 0;
+  // How far along the initial grow is (range [0, 1])
   progress = 0;
+  // The phase of the wobble (range [0, 359])
   wobble_phase = 0;
+  // Freeze the frame
   image_speed = 0;
+  // Tell everyone something is animating
   global.animating = true;
 }
 </string>
@@ -64,6 +70,7 @@
     case 0: // Grow
       progress += 4/room_speed;
       scale = dsin(progress*90);
+      // Stop animating once it's done growing
       if (progress &gt;= 1) {
         global.animating = false;
         scale = 1;
@@ -74,11 +81,12 @@
     case 1: // Stay
       scale = 1;
     break;
-    case 2: // Wobble
+    case 2: // Wobble (indicates win)
       wobble_phase = (wobble_phase+360/room_speed) mod 360;
       scale = 1+0.125*(dsin(wobble_phase)-1);
     break;
   }
+  // Update its scaling
   image_xscale = scale;
   image_yscale = scale;
 }

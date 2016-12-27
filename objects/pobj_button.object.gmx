@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Setup
 {
+  // Freeze frame
   image_speed = 0;
   image_index = 0;
 }
@@ -90,30 +91,6 @@
     <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
-        <id>211</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_sound</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>6</kind>
-            <sound>snd_click</sound>
-          </argument>
-          <argument>
-            <kind>3</kind>
-            <string>0</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -128,8 +105,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Execute programmed event
+            <string>///Click and execute programmed event
 {
+  audio_play_sound(snd_click, 1, false);
   event_user(1);
 }
 </string>

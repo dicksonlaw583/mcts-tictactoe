@@ -28,10 +28,14 @@
             <string>///Setup
 {
   _room = undefined; //Will be overridden
+  // Start transparent
   image_alpha = 0;
+  // Finite state machine counter
   phase = 0;
+  // Fade progress (range [0, 1])
   progress = 0;
   progress_speed = 4/room_speed;
+  // Tell everyone an animation is going on
   global.animating = true;
 }
 </string>
@@ -62,12 +66,13 @@
     case 0: //Fade to black
       progress += progress_speed;
       image_alpha = dsin(progress*90);
+      // Change rooms when totally black
       if (progress &gt;= 1) {
         progress = 1;
         image_alpha = 1;
         phase = 1;
       }
-      global.animating = true;
+      global.animating = true; //Animations ongoing
     break;
     case 1: //Change room
       phase = 2;
@@ -76,8 +81,9 @@
     case 2: //Fade from black
       progress -= progress_speed;
       image_alpha = dsin(progress*90);
+      // Done when totally transparent
       if (progress &lt;= 0) {
-        global.animating = false;
+        global.animating = false; //Animations done
         instance_destroy();
       }
     break;

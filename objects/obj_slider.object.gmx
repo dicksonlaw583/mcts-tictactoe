@@ -27,11 +27,15 @@
             <kind>1</kind>
             <string>///Setup
 {
+  // Minimum and maximum value
   _min = 1;
   _max = 500;
+  // Minimum and maximum on-screen x
   _minx = room_width/2-254;
   _maxx = room_width/2+255;
+  // Put the slider in the right place
   x = relerp(_min, _max, global.mcts_time, _minx, _maxx);
+  // Variables for dragging
   dragging = false;
   mdx = 0;
 }

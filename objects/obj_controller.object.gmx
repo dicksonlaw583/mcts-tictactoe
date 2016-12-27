@@ -67,7 +67,9 @@
             <string>///Allocate time for the AI if it's the computer's turn
 {
   if (state[9] != player_symbol &amp;&amp; is_undefined(game_outcome) &amp;&amp; !global.animating) {
+    // Give half the step's length or the total allowed evaluation time, whichever is less
     var time_slice = min((1000/room_speed)/2, global.mcts_time);
+    // Initialize the MCTS AI if it isn't set up yet
     if (is_undefined(mcts_tree)) {
       mcts_tree = MctsTree(mcts_type, state,
         tictactoe_select,
@@ -78,24 +80,30 @@
         tictactoe_interpret_playout
       );
     }
+    // Expand the MctsTree just one bit and record the time spent
     mcts_tree_evaluate(mcts_tree, time_slice, time_slice);
     mcts_time_elapsed += time_slice;
+    // Advance the animated ellipsis
     ellipsis_animate += ellipsis_animate_speed;
     if (ellipsis_animate &gt;= 4) {
       ellipsis_animate -= 4;
     }
+    // If the time's up, make the best move available
     if (mcts_time_elapsed &gt; global.mcts_time) {
       var best_move = mcts_tree_get_best_move(mcts_tree);
       tictactoe_apply_move(state, best_move);
+      // Create the symbol on the board as a visual
       if (player_symbol == 1) {
         symbol_instances[best_move] = instance_create(480+160*(best_move mod 3), 200+160*(best_move div 3), obj_x);
       }
       else {
         symbol_instances[best_move] = instance_create(480+160*(best_move mod 3), 200+160*(best_move div 3), obj_o);
       }
+      // Reset the MCTS AI
       mcts_time_elapsed = 0;
       mcts_tree = undefined;
       ellipsis_animate = 0;
+      // Check for wins
       event_user(1);
     }
   }
@@ -120,7 +128,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Play a sound and animate symbols if the game is done
+            <string>///Play a sound and animate symbols if the game is done (i.e. game finished and all animations are settled)
 {
   if (!(game_done || is_undefined(game_outcome) || global.animating)) {
     // Play the right sound and increment score
@@ -201,15 +209,19 @@
   if (state[9] == player_symbol &amp;&amp; is_undefined(game_outcome) &amp;&amp; !global.animating) {
     var cellx = (mouse_x-400) div 160,
         celly = (mouse_y-120) div 160;
+    // Don't accept input outside the board
     if (cellx &gt;= 0 &amp;&amp; cellx &lt;= 2 &amp;&amp; celly &gt;= 0 &amp;&amp; celly &lt;= 2) {
       var move = celly*3+cellx;
+      // Accept legal moves only
       if (tictactoe_apply_move(state, move)) {
+        // Add the right symbol to the board as a visual
         if (player_symbol == 1) {
           symbol_instances[move] = instance_create(480+160*cellx, 200+160*celly, obj_o);
         }
         else {
           symbol_instances[move] = instance_create(480+160*cellx, 200+160*celly, obj_x);
         }
+        // Check for wins
         event_user(1);
       }
     }
@@ -342,6 +354,7 @@
   else {
     draw_sprite(spr_x, 0, 192, 192+64+160);
   }
+  // Draw status only if no animations are going on
   if (!global.animating) {
     if (is_undefined(game_outcome)) {
       if (player_symbol == state[9]) {
@@ -369,6 +382,7 @@
   else {
     draw_sprite(spr_o, 0, room_width-192, 192+64+160);
   }
+  // Draw status only if no animations are going on
   if (!global.animating) {
     if (is_undefined(game_outcome)) {
       if (player_symbol != state[9]) {

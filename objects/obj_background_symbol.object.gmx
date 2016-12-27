@@ -27,8 +27,11 @@
             <kind>1</kind>
             <string>///Setup
 {
+  // Pick X or O and freeze the frame
   sprite_index = choose(spr_x, spr_o);
   image_speed = 0;
+  // Randomize spinning speed and angle, falling speed, size and transparency
+  // The spinning is a horizontal flip emulating 3D
   theta = random(2*pi);
   theta_speed = random_range(pi/room_speed/2, pi/room_speed);
   vspeed = irandom_range(4, 8);
@@ -59,12 +62,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Advance rotation
+            <string>///Advance flipping animation
 {
+  // Rotate by one more bit and clamp within 2*pi
   theta += theta_speed;
   if (theta &gt; 2*pi) {
     theta -= 2*pi;
   }
+  // Update the horizontal scaling
   image_xscale = scale*sin(theta);
 }
 </string>
@@ -89,7 +94,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Remove itself if it goes off the bottom
+            <string>///Self-destruct if it goes off the bottom
 {
   if (y &gt; room_height+sprite_height) {
     instance_destroy();
