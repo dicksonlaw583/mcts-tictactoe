@@ -210,13 +210,13 @@
   draw_set_font(fnt_text);
   draw_set_colour($c7c7c7);
   // Title
-  draw_text((_minx+_maxx)/2, y-16-48, "Adjust AI thinking time");
+  draw_text((_minx+_maxx)/2, y-16-75, "Adjust AI thinking time");
   // Slider back
   draw_rectangle_colour(_minx, y-bar_height/2, _maxx, y+bar_height/2, c_gray, c_gray, c_dkgray, c_dkgray, true);
   // Slider button
   draw_self();
   // Amount
-  draw_text_transformed(x, y+28, string(global.mcts_time)+"ms", 0.5, 0.5, 0);
+  draw_text_transformed(x, y-48, string(global.mcts_time)+"ms", 0.75, 0.75, 0);
 }
 </string>
           </argument>
