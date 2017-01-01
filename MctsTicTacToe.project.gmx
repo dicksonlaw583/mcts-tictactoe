@@ -127,7 +127,6 @@
     <objects name="System">
       <object>objects\pobj_button</object>
       <object>objects\obj_room_fadeto</object>
-      <object>objects\obj_background_generator</object>
       <object>objects\obj_background_symbol</object>
     </objects>
     <objects name="Game">

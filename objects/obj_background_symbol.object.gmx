@@ -76,8 +76,6 @@
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="7" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -94,10 +92,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Self-destruct if it goes off the bottom
+            <string>///Respawn at the top randomly upon reaching the bottom
 {
   if (y &gt; room_height+sprite_height) {
-    instance_destroy();
+    x = irandom(room_width);
+    y = -80;
+    event_perform(ev_create, 0);
   }
 }
 </string>
