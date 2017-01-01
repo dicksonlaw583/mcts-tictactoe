@@ -20,8 +20,10 @@
   repeat (times) {
     instance_create(irandom(room_width), irandom(room_height), obj_background_symbol);
   }
-  //Global variables
-  global.mcts_time = 100; // Time allowed for the MCTS AI to think per move
+  //Global variables-  global.mcts_time = 250; // Time allowed for the MCTS AI to think per move
+  ini_open(working_directory + "settings.ini");
+  global.mcts_time = ini_read_real("config", "mcts_time", 250); // Time allowed for the MCTS AI to think per move
+  ini_close();
   global.animating = false; // Whether an animation is going on
   //Boot up
   randomize();
