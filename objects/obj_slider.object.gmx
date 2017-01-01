@@ -38,6 +38,8 @@
   // Variables for dragging
   dragging = false;
   mdx = 0;
+  bar_height = 12;
+  finger_tolerance = 10;
 }
 </string>
           </argument>
@@ -91,6 +93,36 @@
   ini_open(working_directory + "settings.ini");
   ini_write_real("config", "mcts_time", global.mcts_time);
   ini_close();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///If it's on the bar but not on the knob, start dragging from there
+{
+  if (!dragging &amp;&amp; !position_meeting(mouse_x, mouse_y, self) &amp;&amp; point_in_rectangle(mouse_x, mouse_y, _minx-finger_tolerance, y-bar_height/2-finger_tolerance, _maxx+finger_tolerance, y+bar_height/2+finger_tolerance)) {
+    dragging = true;
+    x = clamp(mouse_x, _minx, _maxx);
+    mdx = 0;
+  }
 }
 </string>
           </argument>
@@ -180,7 +212,7 @@
   // Title
   draw_text((_minx+_maxx)/2, y-16-48, "Adjust AI thinking time");
   // Slider back
-  draw_rectangle_colour(_minx, y-6, _maxx, y+6, c_dkgray, c_gray, c_dkgray, c_gray, true);
+  draw_rectangle_colour(_minx, y-bar_height/2, _maxx, y+bar_height/2, c_gray, c_gray, c_dkgray, c_dkgray, true);
   // Slider button
   draw_self();
   // Amount
