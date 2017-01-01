@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Setup
 {
+  player_symbol = choose(-1, 1);
   player_wins = 0;
   computer_wins = 0;
   mcts_type = MctsType(
@@ -309,7 +310,6 @@
   // Remove old visuals
   with (pobj_board_symbol) instance_destroy();
   // Start new board
-  player_symbol = choose(-1, 1);
   state = Array(0, 0, 0, 0, 0, 0, 0, 0, 0, choose(-1, 1));
   symbol_instances = Array(noone, noone, noone, noone, noone, noone, noone, noone, noone);
   game_outcome = undefined;
