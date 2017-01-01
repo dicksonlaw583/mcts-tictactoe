@@ -101,6 +101,7 @@
       }
       // Reset the MCTS AI
       mcts_time_elapsed = 0;
+      mcts_tree[@MCTS_TREE.ROOT] = undefined;
       mcts_tree = undefined;
       ellipsis_animate = 0;
       // Check for wins
@@ -315,6 +316,35 @@
   game_done = false;
   mcts_tree = undefined;
   mcts_time_elapsed = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Free the MCTS tree
+{
+  if (!is_undefined(mcts_tree)) {
+    mcts_tree[@MCTS_TREE.ROOT] = undefined;
+    mcts_tree = undefined;
+  }
 }
 </string>
           </argument>
