@@ -27,11 +27,13 @@
             <kind>1</kind>
             <string>///Don't show up in non-desktop platforms
 {
-  if (os_type != os_windows &amp;&amp; os_type != os_uwp &amp;&amp; os_type != os_macosx &amp;&amp; os_type != os_linux) {
+  // Disable completely on HTML5 and iOS
+  if (os_browser != browser_not_a_browser || os_type == os_ios) {
     instance_destroy();
   }
-  if (os_browser != browser_not_a_browser) {
-    instance_destroy();
+  // Run away on mobiles
+  if (os_type != os_windows &amp;&amp; os_type != os_uwp &amp;&amp; os_type != os_macosx &amp;&amp; os_type != os_linux) {
+    x = -10000;
   }
 }
 </string>
@@ -83,6 +85,34 @@
             <string>///Quit
 {
   game_end();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Execute functionality on mobiles
+{
+  if (os_type != os_windows &amp;&amp; os_type != os_uwp &amp;&amp; os_type != os_macosx &amp;&amp; os_type != os_linux) {
+    event_user(1);
+  }
 }
 </string>
           </argument>
